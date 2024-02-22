@@ -3,6 +3,9 @@
 /**
  * _islower - Entry point
  *
+ * @c: character to be verify
+ *
+ * Return: 1 (success) 0 (fail)
  */
 
 int _islower(int c)
