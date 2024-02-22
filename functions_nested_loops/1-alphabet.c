@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-* print_alphabet - Entry point
-*
-*/
+ * print_alphabet - Entry point
+ *
+ */
 
 void print_alphabet(void)
 {
@@ -11,7 +11,7 @@ void print_alphabet(void)
 
 	for (n = 97 ; n <= 122 ; n++)
 	{
-	_putchar(n);
+		_putchar(n);
 	}
 	_putchar('\n');
 }
