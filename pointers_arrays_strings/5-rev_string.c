@@ -1,29 +1,42 @@
 #include "main.h"
+#include <stdio.h>
+
+/**
+ * _len - entry point
+ * Return: retourne la longeur
+ * @str: character to be verify
+*/
+
+int _len(char *str)
+{
+	int i = 0;
+
+	while (str[i])
+		i++;
+
+	return (i);
+}
 
 /**
  * rev_string - entry point
  * @s: number to be verify
+ *
  */
 
 void rev_string(char *s)
 
 {
-	int a;
-	int b;
-	int c;
+	int len = _len(s);
+	int i;
+	int temp;
 
-	c = 0;
-	a = 0;
-	while (s[a] != '\0')
-	{
-		a++;
-	}
+	temp = 0;
 
-	for (b = 0 ; b <= a / 2 ; b++)
+	for (i = 0 ; i <= len / 2 ; i++)
 	{
-		c = s[b];
-		s[b] = s[a - b - 1];
-		s[a - b - 1] = c;
+		temp = s[i];
+		s[i] = s[len - i - 1];
+		s[len - i - 1] = temp;
 	}
 
 }
