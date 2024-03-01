@@ -1,5 +1,5 @@
 #include "main.h"
-#include "stdio.h"
+
 /**
  * _strcpy  - entry point
  * @dest: variable
@@ -9,17 +9,15 @@
 
 char *_strcpy(char *dest, char *src)
 {
-	char *depart = 0;
+	int i;
 
-	while (*src != '\0')
+	for (i = 0 ; src[i] != '\0' ; i++)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		dest[i] = src[i];
 	}
-	*dest = '\0';
+	dest[i] = '\0';
 
-	return (depart);
+	return (dest);
 
 }
 
