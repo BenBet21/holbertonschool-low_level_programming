@@ -12,6 +12,7 @@ void print_diagsums(int *a, int size)
 {
 	unsigned int somme1, somme2;
 	int i, nbcase;
+
 	nbcase = 0;
 	somme1 = 0;
 	somme2 = 0;
