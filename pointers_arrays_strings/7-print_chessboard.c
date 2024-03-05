@@ -21,17 +21,9 @@ void print_chessboard(char (*a)[8])
 	{
 		for (j = 0 ; j < 8 ; j++)
 		{
+		_putchar(a[i][j]);
+		}
 
-		if (a[i][j] >= 65 && a[i][j] <= 90)
-		{
-			_putchar(a[i][j]);
-		}
-		if (a[i][j] >= 97 && a[i][j] <= 122)
-		{
-			_putchar(a[i][j]);
-		}
-		}
 		_putchar('\n');
-	}
-
+		}
 }
