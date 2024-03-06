@@ -9,7 +9,6 @@
 int factorial(int n)
 
 {
-	int i = 1;
 	int res = 1;
 
 	if (n < 0)
@@ -20,12 +19,8 @@ int factorial(int n)
 
 	if (n > 0)
 	{
-		while (i < n)
-		{
-			res = res * i;
-			i++;
-		}
-		return (res);
+	return (n * factorial(n - 1));
+	return (res);
 	}
 	return (0);
 }
