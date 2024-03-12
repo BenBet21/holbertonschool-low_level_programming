@@ -35,15 +35,16 @@ char *str_concat(char *s1, char *s2)
 	int size1;
 	int size2;
 
-	if (s1 == NULL || s2 == NULL)
-	{
-		return (NULL);
-	}
+	if (s1 == NULL)
+	s1 = "";
+
+	if (s2 == NULL)
+	s2 = "";
 
 	size1 = taille(s1);
 	size2 = taille(s2);
 
-	concat = malloc((size1 + size2) * sizeof(char));
+	concat = malloc((size1 + size2 + 1) * sizeof(char));
 
 	if (concat == NULL)
 	{
