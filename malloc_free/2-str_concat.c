@@ -16,7 +16,7 @@ int taille(char *str)
 
 	while (str[i])
 	{
-	i++;
+		i++;
 	}
 	return (i);
 }
@@ -47,7 +47,7 @@ char *str_concat(char *s1, char *s2)
 
 	if (concat == NULL)
 	{
-	return (NULL);
+		return (NULL);
 	}
 
 	for (i = 0 ; i < size1 ; i++)
@@ -55,9 +55,9 @@ char *str_concat(char *s1, char *s2)
 		concat[i] = s1[i];
 	}
 	for (i = 0 ; i < size2; i++)
-		{
+	{
 		concat[size1 + i] = s2[i];
-		}
+	}
 	concat[size1 + size2] = '\0';
 
 	return (concat);
