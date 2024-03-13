@@ -5,32 +5,17 @@
 /**
  * malloc_checked - entry point
  * @b: variable
+ * Return: different values
  */
 
 void *malloc_checked(unsigned int b)
 {
-	char *str;
-	unsigned int i;
+	unsigned int *x;
 
-	if (size == 0)
-	{
-		return (NULL);
-	}
-	str = malloc(size * sizeof(c));
-	if (str == 0)
-	{
-	return (NULL);
-	}
-	i = 0;
-
-	while (i < size)
-	{
-		str[i] = c;
-		i++;
-	}
-
-	str[size] = '\0';
-	return (str);
+	x = malloc(b);
+	if (x == 0)
+		exit(98);
+	return (x);
 
 }
 
