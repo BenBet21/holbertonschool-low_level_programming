@@ -30,12 +30,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int i, size1, size2;
 	char *concatenate;
 
-	size1 = taille(s1);
-	size2 = taille(s2);
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
+
+	size1 = taille(s1);
+	size2 = taille(s2);
+
+
 	if (n >= size2)
 		concatenate = malloc((size1 + size2 + 1) * sizeof(char));
 	if (n < size2)
