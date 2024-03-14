@@ -9,25 +9,16 @@
  * @name: membre de d
  * @age: membre de d
  * @owner: membre de d
- * Return: NULL
+ * Description: this function initialize a variable of type struc dog
+ * with the provided parameters: name, age, owner.
  */
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
-	if (d == NULL || name == NULL || age == 0 || owner == NULL)
+	if (d == NULL)
 		return;
 
-	d->name = malloc(sizeof(name) + 1);
-	if (d->name == NULL)
-		return;
-	strcpy(d->name, name);
-
-	d->owner = malloc(sizeof(owner) + 1);
-	if (d->owner == NULL)
-		return;
-	strcpy(d->owner, owner);
-
+	d->name = name;
+	d->owner = owner;
 	d->age = age;
 }
-
-
