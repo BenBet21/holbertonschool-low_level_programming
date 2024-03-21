@@ -11,34 +11,27 @@
  */
 
 void print_all(const char * const format, ...)
-
 {
 	char *string;
 	unsigned int index = 0;
-
 	va_list args;
 	int is_format_char;
 
 	va_start(args, format);
-
-	while (format[index] != '\0')
+	while (format && format[index] != '\0')
 	{
 		is_format_char = 1;
 		switch (format[index])
-
 		{
 			case 'c':
 				printf("%c", va_arg(args, int));
 				break;
-
 			case 'i':
 				printf("%d", va_arg(args, int));
 				break;
-
 			case 'f':
 				printf("%f", va_arg(args, double));
 				break;
-
 			case 's':
 				string = va_arg(args, char*);
 				if (!string)
