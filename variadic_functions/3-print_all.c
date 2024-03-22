@@ -21,34 +21,29 @@ void print_all(const char * const format, ...)
 	while (format && format[index] != '\0')
 	{
 		is_format_char = 1;
-		switch (format[index])
+
+		if (format[index] == 'c')
+			printf("%c", va_arg(args, int));
+		else if (format[index] == 'i')
+			printf("%d", va_arg(args, int));
+		else if (format[index] == 'f')
+			printf("%f", va_arg(args, double));
+		else if (format[index] == 's')
 		{
-			case 'c':
-				printf("%c", va_arg(args, int));
-				break;
-			case 'i':
-				printf("%d", va_arg(args, int));
-				break;
-			case 'f':
-				printf("%f", va_arg(args, double));
-				break;
-			case 's':
-				string = va_arg(args, char*);
-				if (!string)
-				{
-					printf("(nil)");
-					break;
-				}
+			string = va_arg(args, char*);
+			if (!string)
+				printf("(nil)");
+			else
 				printf("%s", string);
-				break;
-			default:
-				is_format_char = 0;
-				break;
 		}
-		if (format[index + 1] && is_format_char)
-			printf(", ");
-		index++;
+		else
+			is_format_char = 0;
+
+	if (format[index + 1] && is_format_char)
+		printf(", ");
+	index++;
 	}
+
 	printf("\n");
 	va_end(args);
 }
