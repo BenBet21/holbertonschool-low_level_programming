@@ -31,7 +31,7 @@ list_t *add_node(list_t **head, const char *str)
 	}
 	for (compteur = 0 ; str[compteur] != '\0'  ; compteur++)
 
-	new_node->len = compteur;
+	new_node->len = compteur + 1;
 	new_node->next = *head;
 	*head = new_node;
 	return (new_node);
