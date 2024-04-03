@@ -16,25 +16,14 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	dlistint_t *courant = head;
 	unsigned int compteur = 0;
 
-	if (head == NULL)
-		return (NULL);
 
-	while (courant != NULL)
+	while (compteur != index)
 	{
+		if (courant == NULL)
+			return (NULL);
+
 		compteur++;
 		courant = courant->next;
-	}
-
-	if (index == 0 || index >= compteur)
-		return (NULL);
-
-	courant = head;
-	compteur = 0;
-
-	while (compteur < index && courant != NULL)
-	{
-		courant = courant->next;
-		compteur++;
 	}
 	return (courant);
 }
