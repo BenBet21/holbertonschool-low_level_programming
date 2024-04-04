@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -11,38 +9,28 @@
  * or 0 if an error occurs.
  */
 
-
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *file;
+	int file;
 	char *buffer;
-	size_t bytes_read, bytes_written;
+	int index = 0;
 
 	if (filename == NULL)
 		return (0);
 
-	file = fopen(filename, "r");
+	file = open(filename, O_RDONLY);
 
-	if (file == NULL)
+	if (file == -1)
 		return (0);
 
-	buffer = malloc(letters + 1);
+	buffer = malloc(sizeof(char) * letters + 1);
 
-	if (buffer == NULL)
-	{
-		fclose(file);
-		return (0);
-	}
+	read(file, buffer, letters);
+	buffer[letters] = '\0';
 
-	bytes_read = fread(buffer, 1, letters, file);
-	bytes_written = fwrite(buffer, 1, bytes_read, stdout);
+	while (buffer[index])
+		write(STDOUT_FILENO, &buffer[index++], 1);
 
-	free(buffer);
-	fclose(file);
-
-	if (bytes_written != bytes_read)
-		return (0);
-
-	return (bytes_written);
+	close(file);
+	return (strlen(buffer));
 }
