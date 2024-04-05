@@ -11,7 +11,6 @@
  * @argv: Array of arguments
  * Return: 0 on success, otherwise exit status
  */
-
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;
