@@ -3,16 +3,18 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#define BUF_SIZE 1024
+
 /**
  * main - Copies the content of a file to another file
- * @argc: The number of arguments
+ * @argc: Number of arguments
  * @argv: Array of arguments
- * Return: 0 on success, or appropriate error code
+ * Return: 0 on success, otherwise exit status
  */
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to, bytes_read, bytes_written;
-	char buffer[1024];
+	char buf[BUF_SIZE];
 
 	if (argc != 3)
 	{
@@ -32,9 +34,9 @@ int main(int argc, char *argv[])
 		close(fd_from);
 		exit(99);
 	}
-	while ((bytes_read = read(fd_from, buffer, sizeof(buffer))) > 0)
+	while ((bytes_read = read(fd_from, buf, BUF_SIZE)) > 0)
 	{
-		bytes_written = write(fd_to, buffer, bytes_read);
+		bytes_written = write(fd_to, buf, bytes_read);
 		if (bytes_written == -1 || bytes_written != bytes_read)
 		{
 			dprintf(2, "Error: Can't write to file %s\n", argv[2]);
@@ -50,15 +52,7 @@ int main(int argc, char *argv[])
 		close(fd_to);
 		exit(98);
 	}
-	if (close(fd_from) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_from);
-		exit(100);
-	}
-	if (close(fd_to) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_to);
-		exit(100);
-	}
+	close(fd_from);
+	close(fd_to);
 	return (0);
 }
