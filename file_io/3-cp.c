@@ -1,16 +1,16 @@
 #include "main.h"
 #define BUF_SIZE 1024
-
 /**
- * main - Copies the content of a file to another file
- * @argc: Number of arguments
- * @argv: Array of arguments
- * Return: 0 on success, otherwise exit status
+ * main - Entry point of the program
+ * @argc: Number of arguments passed to the program
+ * @argv: Array of pointers to the arguments
+ *
+ * Return: Always 0 on success
  */
 int main(int argc, char *argv[])
 {
 	int fd_from = open(argv[1], O_RDONLY);
-	int fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	int fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	ssize_t bytes_read, bytes_written;
 	char buf[BUF_SIZE];
 
